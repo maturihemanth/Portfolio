@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
@@ -28,12 +28,12 @@ export default function Contact() {
 
   const inp: React.CSSProperties = {
     width: '100%', padding: '0.9rem 1.1rem', borderRadius: 10, fontSize: 14,
-    background: 'rgba(19,19,48,0.8)', border: '1px solid var(--border)',
+    background: 'rgba(28,28,28,0.8)', border: '1px solid var(--border)',
     color: 'var(--text)', outline: 'none', fontFamily: "'DM Sans', sans-serif",
     transition: 'border-color 0.2s',
   };
   const focus = (e: React.FocusEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
-    (e.target.style.borderColor = 'rgba(99,102,241,0.5)');
+    (e.target.style.borderColor = 'rgba(212,168,83,0.5)');
   const blur = (e: React.FocusEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
     (e.target.style.borderColor = 'var(--border)');
 
@@ -65,12 +65,12 @@ export default function Contact() {
               <motion.div key={c.label} initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3 + i * 0.1 }}
                 style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.25rem' }}>
                 <div style={{ width: 44, height: 44, borderRadius: 12, flexShrink: 0,
-                  background: 'rgba(99,102,241,0.08)', border: '1px solid var(--border)',
+                  background: 'rgba(212,168,83,0.08)', border: '1px solid var(--border)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>{c.icon}</div>
                 <div>
                   <div style={{ fontSize: 11, color: 'var(--muted2)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
                   {c.href
-                    ? <a href={c.href} style={{ fontSize: 14, color: '#818cf8', textDecoration: 'none', fontWeight: 500 }}>{c.value}</a>
+                    ? <a href={c.href} style={{ fontSize: 14, color: '#d4a853', textDecoration: 'none', fontWeight: 500 }}>{c.value}</a>
                     : <span style={{ fontSize: 14, color: 'var(--text)', fontWeight: 500 }}>{c.value}</span>}
                 </div>
               </motion.div>
@@ -85,10 +85,10 @@ export default function Contact() {
               ].map(s => (
                 <a key={s.label} href={s.href} aria-label={s.label}
                   style={{ width: 44, height: 44, borderRadius: 12,
-                    background: 'rgba(19,19,48,0.8)', border: '1px solid var(--border)',
+                    background: 'rgba(28,28,28,0.8)', border: '1px solid var(--border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16,
                     textDecoration: 'none', transition: 'border-color 0.2s, box-shadow 0.2s' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.4)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 16px rgba(99,102,241,0.2)'; }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.4)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 16px rgba(212,168,83,0.2)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
                   {s.icon}
                 </a>
@@ -99,19 +99,19 @@ export default function Contact() {
           {/* Form */}
           <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.3 }}
             style={{ padding: '2.5rem', borderRadius: 24,
-              background: 'rgba(19,19,48,0.6)', border: '1px solid var(--border)',
+              background: 'rgba(28,28,28,0.6)', border: '1px solid var(--border)',
               boxShadow: '0 40px 80px rgba(0,0,0,0.3)' }}>
             {status === 'sent' ? (
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
                 style={{ textAlign: 'center', padding: '3rem 1rem' }}>
                 <div style={{ fontSize: 48, marginBottom: '1rem',
-                  background: 'linear-gradient(135deg,#6366f1,#22d3ee)',
+                  background: 'linear-gradient(135deg,#a07828,#e8c47a)',
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>✓</div>
                 <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: 'var(--text)', marginBottom: '0.75rem' }}>Message Sent!</h3>
                 <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.7 }}>Thank you for reaching out. I&apos;ll get back to you within 24 hours.</p>
                 <button onClick={() => { setStatus('idle'); setForm({ name:'', email:'', service:'', message:'' }); }}
-                  style={{ marginTop: '1.5rem', padding: '0.6rem 1.4rem', borderRadius: 8, background: 'rgba(99,102,241,0.1)',
-                    border: '1px solid rgba(99,102,241,0.2)', color: '#818cf8', cursor: 'pointer', fontSize: 13 }}>
+                  style={{ marginTop: '1.5rem', padding: '0.6rem 1.4rem', borderRadius: 8, background: 'rgba(212,168,83,0.1)',
+                    border: '1px solid rgba(212,168,83,0.2)', color: '#d4a853', cursor: 'pointer', fontSize: 13 }}>
                   Send Another
                 </button>
               </motion.div>
@@ -134,9 +134,9 @@ export default function Contact() {
                   <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--muted2)', letterSpacing: '0.06em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Service</label>
                   <select value={form.service} onChange={e => setForm(v => ({ ...v, service: e.target.value }))}
                     style={{ ...inp, appearance: 'none' }} onFocus={focus} onBlur={blur}>
-                    <option value="" style={{ background: '#0c0c24' }}>Select a service…</option>
+                    <option value="" style={{ background: '#0e0e0e' }}>Select a service…</option>
                     {['Graphic Design','Video Editing','Motion Graphics','Social Media Design','Branding','Real Estate Content','Other'].map(o => (
-                      <option key={o} value={o.toLowerCase().replace(/ /g,'-')} style={{ background: '#0c0c24' }}>{o}</option>
+                      <option key={o} value={o.toLowerCase().replace(/ /g,'-')} style={{ background: '#0e0e0e' }}>{o}</option>
                     ))}
                   </select>
                 </div>
@@ -148,11 +148,11 @@ export default function Contact() {
                 </div>
                 <button type="submit" disabled={status === 'sending'}
                   style={{ padding: '0.95rem', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer',
-                    background: status === 'sending' ? 'rgba(99,102,241,0.4)' : 'linear-gradient(135deg,#6366f1,#818cf8)',
+                    background: status === 'sending' ? 'rgba(212,168,83,0.4)' : 'linear-gradient(135deg,#a07828,#d4a853)',
                     border: 'none', color: '#fff', letterSpacing: '0.02em',
-                    boxShadow: '0 8px 24px rgba(99,102,241,0.3)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                  onMouseEnter={e => { if (status !== 'sending') { (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 14px 36px rgba(99,102,241,0.45)'; } }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'none'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 24px rgba(99,102,241,0.3)'; }}>
+                    boxShadow: '0 8px 24px rgba(212,168,83,0.3)', transition: 'transform 0.2s, box-shadow 0.2s' }}
+                  onMouseEnter={e => { if (status !== 'sending') { (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 14px 36px rgba(212,168,83,0.45)'; } }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'none'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 24px rgba(212,168,83,0.3)'; }}>
                   {status === 'sending' ? 'Sending…' : 'Send Message →'}
                 </button>
               </form>

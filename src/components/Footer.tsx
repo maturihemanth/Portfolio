@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { motion } from 'framer-motion';
 
 const nav = [
@@ -21,10 +21,10 @@ export default function Footer() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
               <div style={{ width: 38, height: 38, borderRadius: 10,
-                background: 'linear-gradient(135deg,#6366f1,#818cf8,#22d3ee)',
+                background: 'linear-gradient(135deg,#a07828,#d4a853,#e8c47a)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 16, color: '#fff',
-                boxShadow: '0 0 20px rgba(99,102,241,0.3)' }}>H</div>
+                boxShadow: '0 0 20px rgba(212,168,83,0.3)' }}>H</div>
               <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 17, fontWeight: 700, color: 'var(--text)' }}>Maturi Hemanth</span>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--muted)', maxWidth: 320 }}>
@@ -37,10 +37,10 @@ export default function Footer() {
               ].map(s => (
                 <a key={s.label} href={s.href} aria-label={s.label}
                   style={{ width: 38, height: 38, borderRadius: 10, fontSize: 14,
-                    background: 'rgba(19,19,48,0.8)', border: '1px solid var(--border)',
+                    background: 'rgba(28,28,28,0.8)', border: '1px solid var(--border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none',
                     transition: 'border-color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.4)'}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.4)'}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'}>
                   {s.icon}
                 </a>
@@ -55,7 +55,7 @@ export default function Footer() {
                 <button key={l.href} onClick={() => go(l.href)}
                   style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left',
                     fontSize: 14, color: 'var(--muted)', padding: 0, transition: 'color 0.2s' }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#818cf8'}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#d4a853'}
                   onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = 'var(--muted)'}>
                   {l.label}
                 </button>
@@ -79,7 +79,7 @@ export default function Footer() {
           <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{ padding: '0.45rem 1rem', borderRadius: 8, fontSize: 12, fontWeight: 500, cursor: 'pointer',
-              background: 'rgba(99,102,241,0.07)', border: '1px solid var(--border)', color: '#818cf8' }}>
+              background: 'rgba(212,168,83,0.07)', border: '1px solid var(--border)', color: '#d4a853' }}>
             Back to top ↑
           </motion.button>
         </div>

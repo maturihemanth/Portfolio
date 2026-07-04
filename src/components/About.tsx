@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
@@ -24,22 +24,22 @@ export default function About() {
             style={{ position: 'relative' }} className="about-photos">
             <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden',
               border: '1px solid var(--border2)', aspectRatio: '3/4', maxWidth: 380,
-              boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(99,102,241,0.1)' }}>
+              boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(212,168,83,0.1)' }}>
               <Image src="/IMG_0246.JPG" alt="Hemanth – Professional" fill style={{ objectFit: 'cover' }} sizes="380px" />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,7,26,0.4) 0%, transparent 60%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,8,8,0.4) 0%, transparent 60%)' }} />
             </div>
             <motion.div animate={{ y: [0,-6,0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
               style={{ position: 'absolute', bottom: '-2rem', right: '-1rem',
                 width: 155, height: 175, borderRadius: 18, overflow: 'hidden',
-                border: '2px solid rgba(99,102,241,0.3)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(99,102,241,0.15)' }}>
+                border: '2px solid rgba(212,168,83,0.3)',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(212,168,83,0.15)' }}>
               <Image src="/IMG_0849.PNG" alt="Hemanth – Casual" fill style={{ objectFit: 'cover', objectPosition: 'center top' }} sizes="155px" />
             </motion.div>
             {/* Accent corner */}
             <div style={{ position: 'absolute', top: -12, left: -12, width: 56, height: 56,
-              border: '2px solid rgba(99,102,241,0.4)', borderRadius: 10, borderRight: 'none', borderBottom: 'none' }} />
+              border: '2px solid rgba(212,168,83,0.4)', borderRadius: 10, borderRight: 'none', borderBottom: 'none' }} />
             <div style={{ position: 'absolute', bottom: '-3rem', left: -12, width: 40, height: 40,
-              border: '2px solid rgba(34,211,238,0.3)', borderRadius: 8, borderLeft: 'none', borderTop: 'none' }} />
+              border: '2px solid rgba(232,196,122,0.3)', borderRadius: 8, borderLeft: 'none', borderTop: 'none' }} />
           </motion.div>
 
           {/* Text */}
@@ -67,14 +67,14 @@ export default function About() {
               ].map(e => (
                 <div key={e.company} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start',
                   padding: '1rem 1.25rem', borderRadius: 12,
-                  background: e.current ? 'rgba(99,102,241,0.07)' : 'transparent',
-                  border: `1px solid ${e.current ? 'rgba(99,102,241,0.2)' : 'var(--border)'}` }}>
+                  background: e.current ? 'rgba(212,168,83,0.07)' : 'transparent',
+                  border: `1px solid ${e.current ? 'rgba(212,168,83,0.2)' : 'var(--border)'}` }}>
                   <div style={{ width: 8, height: 8, borderRadius: '50%', marginTop: 5, flexShrink: 0,
-                    background: e.current ? 'linear-gradient(135deg,#6366f1,#22d3ee)' : '#333',
-                    boxShadow: e.current ? '0 0 10px rgba(99,102,241,0.5)' : 'none' }} />
+                    background: e.current ? 'linear-gradient(135deg,#a07828,#e8c47a)' : '#333',
+                    boxShadow: e.current ? '0 0 10px rgba(212,168,83,0.5)' : 'none' }} />
                   <div>
                     <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)' }}>{e.role}</div>
-                    <div style={{ fontSize: 12, color: e.current ? '#818cf8' : 'var(--muted2)', marginTop: 2 }}>{e.company} · {e.period}</div>
+                    <div style={{ fontSize: 12, color: e.current ? '#d4a853' : 'var(--muted2)', marginTop: 2 }}>{e.company} · {e.period}</div>
                   </div>
                 </div>
               ))}

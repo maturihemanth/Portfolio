@@ -1,14 +1,14 @@
-'use client';
+﻿'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const services = [
-  { icon: '◈', title: 'Graphic Design', desc: 'Posters, banners, social media creatives, and promotional materials built on strong visual hierarchy.', tags: ['Photoshop', 'Illustrator'], color: '#6366f1' },
-  { icon: '▶', title: 'Video Editing', desc: 'Cinematic reels, YouTube Shorts, brand films and promotional videos with smooth cuts and dynamic pacing.', tags: ['Premiere Pro', 'DaVinci Resolve'], color: '#818cf8' },
-  { icon: '✦', title: 'Motion Graphics', desc: 'Animated titles, transitions, logo reveals, and visual effects that breathe life into any content.', tags: ['After Effects'], color: '#22d3ee' },
-  { icon: '⬡', title: 'Social Media Design', desc: 'Platform-optimised creatives for Instagram, YouTube, and Facebook — built to stop the scroll.', tags: ['Photoshop', 'Canva'], color: '#818cf8' },
-  { icon: '◉', title: 'Branding & Identity', desc: 'Visual identity systems — logos, colour palettes, typography, and brand guidelines for cohesive storytelling.', tags: ['Illustrator', 'Photoshop'], color: '#6366f1' },
-  { icon: '⬕', title: 'Real Estate Content', desc: 'Property videos, promotional listings, virtual tour visuals, and marketing materials for real estate brands.', tags: ['Premiere Pro', 'Photoshop'], color: '#22d3ee' },
+  { icon: '◈', title: 'Graphic Design', desc: 'Posters, banners, social media creatives, and promotional materials built on strong visual hierarchy.', tags: ['Photoshop', 'Illustrator'], color: '#a07828' },
+  { icon: '▶', title: 'Video Editing', desc: 'Cinematic reels, YouTube Shorts, brand films and promotional videos with smooth cuts and dynamic pacing.', tags: ['Premiere Pro', 'DaVinci Resolve'], color: '#d4a853' },
+  { icon: '✦', title: 'Motion Graphics', desc: 'Animated titles, transitions, logo reveals, and visual effects that breathe life into any content.', tags: ['After Effects'], color: '#e8c47a' },
+  { icon: '⬡', title: 'Social Media Design', desc: 'Platform-optimised creatives for Instagram, YouTube, and Facebook — built to stop the scroll.', tags: ['Photoshop', 'Canva'], color: '#d4a853' },
+  { icon: '◉', title: 'Branding & Identity', desc: 'Visual identity systems — logos, colour palettes, typography, and brand guidelines for cohesive storytelling.', tags: ['Illustrator', 'Photoshop'], color: '#a07828' },
+  { icon: '⬕', title: 'Real Estate Content', desc: 'Property videos, promotional listings, virtual tour visuals, and marketing materials for real estate brands.', tags: ['Premiere Pro', 'Photoshop'], color: '#e8c47a' },
 ];
 
 export default function Services() {
@@ -42,7 +42,7 @@ export default function Services() {
               transition={{ duration: 0.6, delay: 0.08 * i, ease: [0.22,1,0.36,1] }}
               whileHover={{ y: -6 }}
               style={{ padding: '2rem', borderRadius: 20, cursor: 'default',
-                background: 'rgba(19,19,48,0.5)', border: '1px solid var(--border)',
+                background: 'rgba(28,28,28,0.5)', border: '1px solid var(--border)',
                 transition: 'border-color 0.3s, box-shadow 0.3s' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${s.color}33`; (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 60px rgba(0,0,0,0.4), 0 0 40px ${s.color}10`; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>

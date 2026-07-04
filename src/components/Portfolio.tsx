@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -28,23 +28,23 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
         transition={{ duration: 0.35, ease: [0.22,1,0.36,1] }} onClick={e => e.stopPropagation()}
         style={{ background: 'var(--bg2)', border: '1px solid var(--border2)', borderRadius: 24, overflow: 'hidden',
           width: '100%', maxWidth: 920, maxHeight: '90vh', display: 'flex', flexDirection: 'column',
-          boxShadow: '0 40px 100px rgba(0,0,0,0.8), 0 0 60px rgba(99,102,241,0.15)' }}>
+          boxShadow: '0 40px 100px rgba(0,0,0,0.8), 0 0 60px rgba(212,168,83,0.15)' }}>
         <div style={{ position: 'relative', aspectRatio: '16/9', background: 'var(--bg3)' }}>
           <Image src={project.image} alt={project.title} fill style={{ objectFit: 'cover' }} sizes="920px" />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(12,12,36,0.7) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(20,20,20,0.7) 0%, transparent 60%)' }} />
           <button onClick={onClose} style={{ position: 'absolute', top: 16, right: 16,
             background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer',
             width: 36, height: 36, borderRadius: '50%', color: '#fff', fontSize: 18,
             display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)' }}>×</button>
         </div>
         <div style={{ padding: '2rem', overflowY: 'auto' }}>
-          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#818cf8' }}>{project.category}</span>
+          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#d4a853' }}>{project.category}</span>
           <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 800, color: 'var(--text)', marginTop: 6, marginBottom: '0.75rem' }}>{project.title}</h3>
           <p style={{ fontSize: 15, lineHeight: 1.8, color: 'var(--muted)' }}>{project.desc}</p>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: '1.25rem' }}>
             {project.tools.map(t => (
               <span key={t} style={{ fontSize: 12, fontWeight: 500, padding: '0.3rem 0.9rem', borderRadius: 100,
-                background: 'rgba(99,102,241,0.1)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.25)' }}>{t}</span>
+                background: 'rgba(212,168,83,0.1)', color: '#d4a853', border: '1px solid rgba(212,168,83,0.25)' }}>{t}</span>
             ))}
           </div>
         </div>
@@ -79,9 +79,9 @@ export default function Portfolio() {
             {categories.map(c => (
               <button key={c} onClick={() => setFilter(c)}
                 style={{ padding: '0.4rem 1rem', borderRadius: 100, fontSize: 12, fontWeight: 500, cursor: 'pointer',
-                  border: `1px solid ${filter === c ? 'rgba(99,102,241,0.5)' : 'var(--border)'}`,
-                  background: filter === c ? 'rgba(99,102,241,0.12)' : 'transparent',
-                  color: filter === c ? '#818cf8' : 'var(--muted)', transition: 'all 0.2s' }}>{c}</button>
+                  border: `1px solid ${filter === c ? 'rgba(212,168,83,0.5)' : 'var(--border)'}`,
+                  background: filter === c ? 'rgba(212,168,83,0.12)' : 'transparent',
+                  color: filter === c ? '#d4a853' : 'var(--muted)', transition: 'all 0.2s' }}>{c}</button>
             ))}
           </motion.div>
         </div>
@@ -102,14 +102,14 @@ export default function Portfolio() {
                 <Image src={p.image} alt={p.title} fill style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} sizes="400px" />
                 <motion.div variants={{ hover: { opacity: 1 } }} initial={{ opacity: 0 }}
                   style={{ position: 'absolute', inset: 0,
-                    background: 'linear-gradient(to top, rgba(7,7,26,0.95) 0%, rgba(7,7,26,0.5) 50%, transparent 100%)',
+                    background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.5) 50%, transparent 100%)',
                     display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem' }}>
-                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#818cf8', marginBottom: 5 }}>{p.category}</span>
+                  <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#d4a853', marginBottom: 5 }}>{p.category}</span>
                   <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 15, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>{p.title}</h3>
                   <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.5 }} className="line-clamp-2">{p.desc}</p>
                   <div style={{ display: 'flex', gap: 5, marginTop: 8 }}>
                     {p.tools.map(t => (
-                      <span key={t} style={{ fontSize: 10, padding: '0.15rem 0.5rem', borderRadius: 100, background: 'rgba(99,102,241,0.2)', color: '#818cf8' }}>{t}</span>
+                      <span key={t} style={{ fontSize: 10, padding: '0.15rem 0.5rem', borderRadius: 100, background: 'rgba(212,168,83,0.2)', color: '#d4a853' }}>{t}</span>
                     ))}
                   </div>
                 </motion.div>

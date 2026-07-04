@@ -1,14 +1,14 @@
-'use client';
+﻿'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const skills = [
-  { name: 'Adobe Premiere Pro',  pct: 85, icon: '🎬', cat: 'Video',  color: '#818cf8' },
-  { name: 'Adobe Photoshop',     pct: 75, icon: '🖼',  cat: 'Design', color: '#6366f1' },
-  { name: 'Adobe After Effects', pct: 50, icon: '✨',  cat: 'Motion', color: '#22d3ee' },
-  { name: 'DaVinci Resolve',     pct: 50, icon: '🎞',  cat: 'Video',  color: '#818cf8' },
-  { name: 'Canva',               pct: 80, icon: '🎨',  cat: 'Design', color: '#6366f1' },
-  { name: 'Typography & Layout', pct: 78, icon: '📐',  cat: 'Design', color: '#22d3ee' },
+  { name: 'Adobe Premiere Pro',  pct: 85, icon: '🎬', cat: 'Video',  color: '#d4a853' },
+  { name: 'Adobe Photoshop',     pct: 75, icon: '🖼',  cat: 'Design', color: '#a07828' },
+  { name: 'Adobe After Effects', pct: 50, icon: '✨',  cat: 'Motion', color: '#e8c47a' },
+  { name: 'DaVinci Resolve',     pct: 50, icon: '🎞',  cat: 'Video',  color: '#d4a853' },
+  { name: 'Canva',               pct: 80, icon: '🎨',  cat: 'Design', color: '#a07828' },
+  { name: 'Typography & Layout', pct: 78, icon: '📐',  cat: 'Design', color: '#e8c47a' },
 ];
 
 const softSkills = ['Visual Storytelling','Brand Identity','Color Theory','Creative Direction','Social Media Strategy','Client Communication','Real Estate Marketing','Motion Design'];
@@ -55,18 +55,18 @@ export default function Skills() {
           <div>{skills.map((s, i) => <Bar key={s.name} s={s} i={i} inView={inView} />)}</div>
           <div>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }}
-              style={{ padding: '2rem', borderRadius: 20, background: 'rgba(19,19,48,0.6)', border: '1px solid var(--border)', marginBottom: '1.5rem' }}>
+              style={{ padding: '2rem', borderRadius: 20, background: 'rgba(28,28,28,0.6)', border: '1px solid var(--border)', marginBottom: '1.5rem' }}>
               <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: '1.25rem', letterSpacing: '0.02em' }}>Core Competencies</h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {softSkills.map((s, i) => (
                   <motion.span key={s} initial={{ opacity: 0, scale: 0.9 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.35 + i * 0.05 }}
                     style={{ fontSize: 12, fontWeight: 500, padding: '0.35rem 0.85rem', borderRadius: 100,
-                      background: 'rgba(99,102,241,0.07)', color: 'rgba(241,245,249,0.7)', border: '1px solid var(--border)' }}>{s}</motion.span>
+                      background: 'rgba(212,168,83,0.07)', color: 'rgba(241,245,249,0.7)', border: '1px solid var(--border)' }}>{s}</motion.span>
                 ))}
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.5 }}
-              style={{ padding: '2rem', borderRadius: 20, background: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.15)' }}>
+              style={{ padding: '2rem', borderRadius: 20, background: 'rgba(212,168,83,0.05)', border: '1px solid rgba(212,168,83,0.15)' }}>
               <div className="section-label" style={{ marginBottom: '0.75rem' }}>Education</div>
               <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>Diploma in Electronics Engineering</div>
               <div style={{ fontSize: 13, color: 'var(--muted)', marginTop: 2 }}>&amp; Embedded Systems</div>

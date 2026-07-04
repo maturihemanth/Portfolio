@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
@@ -32,7 +32,7 @@ export default function Stats() {
               <div style={{
                 fontFamily: "'Syne', sans-serif",
                 fontSize: 'clamp(2.5rem,5vw,4rem)', fontWeight: 800, lineHeight: 1,
-                background: 'linear-gradient(135deg, #6366f1 0%, #818cf8 50%, #22d3ee 100%)',
+                background: 'linear-gradient(135deg, #a07828 0%, #d4a853 50%, #e8c47a 100%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                 marginBottom: '0.5rem',
               }}>

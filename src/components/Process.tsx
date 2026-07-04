@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
@@ -11,7 +11,7 @@ const steps = [
   { num: '06', title: 'Final Delivery', desc: 'Production-ready files delivered in all required formats, on time.' },
 ];
 
-const colors = ['#6366f1','#818cf8','#22d3ee','#818cf8','#6366f1','#22d3ee'];
+const colors = ['#a07828','#d4a853','#e8c47a','#d4a853','#a07828','#e8c47a'];
 
 export default function Process() {
   const ref = useRef(null);
@@ -35,7 +35,7 @@ export default function Process() {
               transition={{ duration: 0.6, delay: 0.08 * i, ease: [0.22,1,0.36,1] }}
               whileHover={{ borderColor: `${colors[i]}40`, transition: { duration: 0.2 } }}
               style={{ padding: '2rem', borderRadius: 20,
-                background: 'rgba(19,19,48,0.5)', border: '1px solid var(--border)', position: 'relative' }}>
+                background: 'rgba(28,28,28,0.5)', border: '1px solid var(--border)', position: 'relative' }}>
               {/* Number */}
               <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 52, fontWeight: 800, lineHeight: 1, marginBottom: '1rem',
                 background: `linear-gradient(135deg, ${colors[i]}25, ${colors[i]}08)`,
@@ -45,7 +45,7 @@ export default function Process() {
               <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--muted)' }}>{s.desc}</p>
               {i % 3 !== 2 && (
                 <div style={{ position: 'absolute', right: -20, top: '50%', transform: 'translateY(-50%)',
-                  color: 'rgba(99,102,241,0.25)', fontSize: 18, zIndex: 2 }} className="process-arrow">→</div>
+                  color: 'rgba(212,168,83,0.25)', fontSize: 18, zIndex: 2 }} className="process-arrow">→</div>
               )}
             </motion.div>
           ))}

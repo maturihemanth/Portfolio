@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
@@ -47,7 +47,7 @@ function VideoCard({ video, onClick }: { video: Video; onClick: () => void }) {
         background: 'var(--bg3)', border: '1px solid var(--border)',
         transition: 'border-color 0.3s' }}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.3)';
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.3)';
         vRef.current?.play().catch(() => {});
       }}
       onMouseLeave={e => {
@@ -60,20 +60,20 @@ function VideoCard({ video, onClick }: { video: Video; onClick: () => void }) {
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         {/* Overlay */}
         <div style={{ position: 'absolute', inset: 0,
-          background: 'linear-gradient(to top, rgba(7,7,26,0.9) 0%, rgba(7,7,26,0.3) 50%, transparent 100%)',
+          background: 'linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.3) 50%, transparent 100%)',
           display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <motion.div variants={{ hover: { scale: 1.1, opacity: 1 } }} initial={{ opacity: 0.8 }}
             style={{ width: 52, height: 52, borderRadius: '50%',
-              background: 'rgba(99,102,241,0.85)', backdropFilter: 'blur(8px)',
+              background: 'rgba(212,168,83,0.85)', backdropFilter: 'blur(8px)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 0 30px rgba(99,102,241,0.5)' }}>
+              boxShadow: '0 0 30px rgba(212,168,83,0.5)' }}>
             <span style={{ fontSize: 18, marginLeft: 3 }}>▶</span>
           </motion.div>
         </div>
         {/* Featured badge */}
         {video.featured && (
           <div style={{ position: 'absolute', top: 10, left: 10,
-            background: 'linear-gradient(135deg,#6366f1,#818cf8)',
+            background: 'linear-gradient(135deg,#a07828,#d4a853)',
             borderRadius: 100, padding: '0.2rem 0.6rem',
             fontSize: 10, fontWeight: 600, color: '#fff', letterSpacing: '0.06em' }}>Featured</div>
         )}
@@ -85,7 +85,7 @@ function VideoCard({ video, onClick }: { video: Video; onClick: () => void }) {
       </div>
       {/* Info */}
       <div style={{ padding: '1rem 1.1rem 1.25rem' }}>
-        <div style={{ fontSize: 10, fontWeight: 600, color: '#818cf8', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>{video.cat}</div>
+        <div style={{ fontSize: 10, fontWeight: 600, color: '#d4a853', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>{video.cat}</div>
         <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 4, lineHeight: 1.3 }} className="line-clamp-2">{video.title}</h3>
         <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.5 }} className="line-clamp-2">{video.desc}</p>
       </div>
@@ -103,7 +103,7 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
         transition={{ duration: 0.35, ease: [0.22,1,0.36,1] }} onClick={e => e.stopPropagation()}
         style={{ width: '100%', maxWidth: 1000,
           background: 'var(--bg2)', border: '1px solid var(--border2)', borderRadius: 24, overflow: 'hidden',
-          boxShadow: '0 40px 100px rgba(0,0,0,0.9), 0 0 80px rgba(99,102,241,0.15)' }}>
+          boxShadow: '0 40px 100px rgba(0,0,0,0.9), 0 0 80px rgba(212,168,83,0.15)' }}>
         <div style={{ position: 'relative', aspectRatio: '16/9', background: '#000' }}>
           <video src={video.src} controls autoPlay muted
             style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
@@ -115,10 +115,10 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
         <div style={{ padding: '1.5rem 2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <span style={{ fontSize: 11, fontWeight: 600, color: '#818cf8', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{video.cat}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: '#d4a853', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{video.cat}</span>
               <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(1.2rem,2.5vw,1.6rem)', fontWeight: 800, color: 'var(--text)', marginTop: 4 }}>{video.title}</h3>
             </div>
-            <span style={{ padding: '0.3rem 0.9rem', borderRadius: 100, background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', fontSize: 12, color: '#818cf8' }}>{video.duration}</span>
+            <span style={{ padding: '0.3rem 0.9rem', borderRadius: 100, background: 'rgba(212,168,83,0.1)', border: '1px solid rgba(212,168,83,0.2)', fontSize: 12, color: '#d4a853' }}>{video.duration}</span>
           </div>
           <p style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--muted)', marginTop: '0.75rem' }}>{video.desc}</p>
         </div>
@@ -164,9 +164,9 @@ export default function VideoShowcase() {
           {videoCategories.map(c => (
             <button key={c} onClick={() => { setFilter(c); setShowAll(false); }}
               style={{ padding: '0.4rem 1rem', borderRadius: 100, fontSize: 12, fontWeight: 500, cursor: 'pointer',
-                border: `1px solid ${filter === c ? 'rgba(99,102,241,0.5)' : 'var(--border)'}`,
-                background: filter === c ? 'rgba(99,102,241,0.12)' : 'transparent',
-                color: filter === c ? '#818cf8' : 'var(--muted)', transition: 'all 0.2s' }}>{c}</button>
+                border: `1px solid ${filter === c ? 'rgba(212,168,83,0.5)' : 'var(--border)'}`,
+                background: filter === c ? 'rgba(212,168,83,0.12)' : 'transparent',
+                color: filter === c ? '#d4a853' : 'var(--muted)', transition: 'all 0.2s' }}>{c}</button>
           ))}
         </motion.div>
 
@@ -189,10 +189,10 @@ export default function VideoShowcase() {
             style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
             <button onClick={() => setShowAll(v => !v)}
               style={{ padding: '0.85rem 2.5rem', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer',
-                background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.25)',
-                color: '#818cf8', transition: 'all 0.2s' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(99,102,241,0.16)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(99,102,241,0.08)'; }}>
+                background: 'rgba(212,168,83,0.08)', border: '1px solid rgba(212,168,83,0.25)',
+                color: '#d4a853', transition: 'all 0.2s' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(212,168,83,0.16)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(212,168,83,0.08)'; }}>
               {showAll ? `Show Less ↑` : `Load All ${filtered.length} Videos ↓`}
             </button>
           </motion.div>
