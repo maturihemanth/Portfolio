@@ -50,7 +50,7 @@ export default function Hero() {
             <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.55 }}
               style={{ display:'flex', gap:'0.75rem', flexWrap:'wrap', marginBottom:'3rem' }}>
               <button onClick={() => go('#videos')}
-                style={{ padding:'0.85rem 1.75rem', borderRadius:8, background:`linear-gradient(135deg,${GD},${G})`, border:'none', cursor:'pointer', fontSize:14, fontWeight:700, color:'#080808', letterSpacing:'0.02em', boxShadow:`0 6px 28px ${G}35`, transition:'transform 0.2s,box-shadow 0.2s', display:'flex', alignItems:'center', gap:8 }}
+                style={{ padding:'0.85rem 1.75rem', borderRadius:8, background:`linear-gradient(135deg,${GD},${G})`, border:'none', cursor:'pointer', fontSize:14, fontWeight:700, color:'#fff', letterSpacing:'0.02em', boxShadow:`0 6px 28px ${G}35`, transition:'transform 0.2s,box-shadow 0.2s', display:'flex', alignItems:'center', gap:8 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform='translateY(-2px)'; (e.currentTarget as HTMLElement).style.boxShadow=`0 12px 36px ${G}50`; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform='none'; (e.currentTarget as HTMLElement).style.boxShadow=`0 6px 28px ${G}35`; }}>
                 ▶&nbsp;Watch Showreel
