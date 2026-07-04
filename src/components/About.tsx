@@ -25,7 +25,7 @@ export default function About() {
             <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden',
               border: '1px solid var(--border2)', aspectRatio: '3/4', maxWidth: 380,
               boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(212,168,83,0.1)' }}>
-              <Image src="/IMG_0246.JPG" alt="Hemanth – Professional" fill style={{ objectFit: 'cover' }} sizes="380px" />
+              <Image src="/IMG_0246.JPG" alt="Hemanth - Professional" fill style={{ objectFit: 'cover' }} sizes="380px" />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,8,8,0.4) 0%, transparent 60%)' }} />
             </div>
             <motion.div animate={{ y: [0,-6,0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
@@ -33,7 +33,7 @@ export default function About() {
                 width: 155, height: 175, borderRadius: 18, overflow: 'hidden',
                 border: '2px solid rgba(212,168,83,0.3)',
                 boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(212,168,83,0.15)' }}>
-              <Image src="/IMG_0849.PNG" alt="Hemanth – Casual" fill style={{ objectFit: 'cover', objectPosition: 'center top' }} sizes="155px" />
+              <Image src="/IMG_0849.PNG" alt="Hemanth - Casual" fill style={{ objectFit: 'cover', objectPosition: 'center top' }} sizes="155px" />
             </motion.div>
             {/* Accent corner */}
             <div style={{ position: 'absolute', top: -12, left: -12, width: 56, height: 56,
@@ -50,8 +50,8 @@ export default function About() {
             </motion.h2>
 
             {[
-              { d: 0.3, t: "I'm Hemanth — a results-driven creative professional with over 1 year of hands-on experience in video editing and graphic design. Trained at TAC – The Art Code Institute, I now create high-impact visual content for Property Edge Pvt. Ltd., one of Hyderabad's growing real estate brands." },
-              { d: 0.4, t: "My work spans cinematic property reels, brand campaigns, Instagram content, and motion graphics — with 26 videos produced and 50+ design projects delivered." },
+              { d: 0.3, t: "I'm Hemanth - a results-driven creative professional with over 1 year of hands-on experience in video editing and graphic design. Trained at TAC - The Art Code Institute, I now create high-impact visual content for Property Edge Pvt. Ltd., one of Hyderabad's growing real estate brands." },
+              { d: 0.4, t: "My work spans cinematic property reels, brand campaigns, Instagram content, and motion graphics - with 26 videos produced and 50+ design projects delivered." },
               { d: 0.5, t: "Proficient in Adobe Premiere Pro, Photoshop, After Effects, DaVinci Resolve and Canva, I bring creative vision and technical precision to every frame." },
             ].map((p, i) => (
               <motion.p key={i} variants={f} initial="hidden" animate={inView ? 'show' : 'hidden'} transition={{ duration: 0.6, delay: p.d }}
@@ -62,8 +62,8 @@ export default function About() {
             <motion.div variants={f} initial="hidden" animate={inView ? 'show' : 'hidden'} transition={{ duration: 0.6, delay: 0.6 }}
               style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
-                { period: '2025 – Present (1 Year)', role: 'Video Editor & Graphic Designer', company: 'Property Edge Pvt. Ltd.', current: true },
-                { period: '6 Months', role: 'Design & Video Editing Trainee', company: 'TAC – The Art Code Institute', current: false },
+                { period: '2025 - Present (1 Year)', role: 'Video Editor & Graphic Designer', company: 'Property Edge Pvt. Ltd.', current: true },
+                { period: '6 Months', role: 'Design & Video Editing Trainee', company: 'TAC - The Art Code Institute', current: false },
               ].map(e => (
                 <div key={e.company} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start',
                   padding: '1rem 1.25rem', borderRadius: 12,

@@ -11,12 +11,12 @@ export default function Contact() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-    // Build mailto link — works on all static hosts without a backend
+    // Build mailto link - works on all static hosts without a backend
     const subject = encodeURIComponent(
-      `Portfolio Inquiry${form.service ? ` — ${form.service}` : ''}`
+      `Portfolio Inquiry${form.service ? ` - ${form.service}` : ''}`
     );
     const body = encodeURIComponent(
-      `Hi Hemanth,\n\nName: ${form.name}\nEmail: ${form.email}\nService: ${form.service || 'Not specified'}\n\nMessage:\n${form.message}\n\n— Sent via portfolio contact form`
+      `Hi Hemanth,\n\nName: ${form.name}\nEmail: ${form.email}\nService: ${form.service || 'Not specified'}\n\nMessage:\n${form.message}\n\n- Sent via portfolio contact form`
     );
     window.open(
       `mailto:maturihemath7@gmail.com?subject=${subject}&body=${body}`,
@@ -54,7 +54,7 @@ export default function Contact() {
             </motion.h2>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }}
               style={{ fontSize: 15, lineHeight: 1.8, color: 'var(--muted)', marginBottom: '2.5rem' }}>
-              Have a project in mind? Whether it&apos;s a brand identity, a video campaign, or social media content — I&apos;d love to hear about it.
+              Have a project in mind? Whether it&apos;s a brand identity, a video campaign, or social media content - I&apos;d love to hear about it.
             </motion.p>
 
             {[

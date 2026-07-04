@@ -5,35 +5,35 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 const videoCategories = ['All', 'Real Estate Reels', 'Property Tours', 'Investment Content', 'Client Reels'];
 
 const videos = [
-  // A Roll – Hero/feature content
-  { id: 1, title: '90 Seconds to Fall in Love with a Flat', cat: 'Property Tours', src: '/videos/90 seconds to fall in love with a flat.mp4', desc: 'Cinematic property showcase reel for a residential flat — fast-paced cuts, lifestyle b-roll, and compelling narrative.', duration: '~90s', featured: true },
-  { id: 2, title: 'Buying a Home vs Investing in a Home', cat: 'Investment Content', src: '/videos/Buying a home and Investing a home.mp4', desc: 'Educational explainer video comparing buyer motivations — clean text animations and engaging voiceover pacing.', duration: 'Full', featured: true },
-  { id: 3, title: 'Durga Anna — Personal Reel', cat: 'Client Reels', src: '/videos/Durga Anna Reel.mp4', desc: 'High-energy personal brand reel with dynamic cuts, colour grading, and motion typography.', duration: 'Reel', featured: true },
+  // A Roll - Hero/feature content
+  { id: 1, title: '90 Seconds to Fall in Love with a Flat', cat: 'Property Tours', src: '/videos/90 seconds to fall in love with a flat.mp4', desc: 'Cinematic property showcase reel for a residential flat - fast-paced cuts, lifestyle b-roll, and compelling narrative.', duration: '~90s', featured: true },
+  { id: 2, title: 'Buying a Home vs Investing in a Home', cat: 'Investment Content', src: '/videos/Buying a home and Investing a home.mp4', desc: 'Educational explainer video comparing buyer motivations - clean text animations and engaging voiceover pacing.', duration: 'Full', featured: true },
+  { id: 3, title: 'Durga Anna - Personal Reel', cat: 'Client Reels', src: '/videos/Durga Anna Reel.mp4', desc: 'High-energy personal brand reel with dynamic cuts, colour grading, and motion typography.', duration: 'Reel', featured: true },
   { id: 4, title: 'KK Reel', cat: 'Client Reels', src: '/videos/KK Reel.mp4', desc: 'Client testimonial and lifestyle reel crafted for social media engagement.', duration: 'Reel', featured: false },
   { id: 5, title: 'KK v2', cat: 'Client Reels', src: '/videos/kk(2)1.0.mp4', desc: 'Revised version of the KK reel with updated pacing and enhanced colour work.', duration: 'Reel', featured: false },
-  { id: 6, title: 'Lokesh Anna — Personal Reel', cat: 'Client Reels', src: '/videos/Lokesh Anna Reel.mp4', desc: 'Dynamic personal reel with trend-aligned transitions and audio sync.', duration: 'Reel', featured: false },
+  { id: 6, title: 'Lokesh Anna - Personal Reel', cat: 'Client Reels', src: '/videos/Lokesh Anna Reel.mp4', desc: 'Dynamic personal reel with trend-aligned transitions and audio sync.', duration: 'Reel', featured: false },
   { id: 7, title: 'Two Types of Buyers', cat: 'Investment Content', src: '/videos/Two types of Buyers.mp4', desc: 'Engaging short-form content breaking down buyer psychology for real estate marketing.', duration: 'Short', featured: true },
 
-  // B Roll – Supporting/property content
-  { id: 8, title: 'Banjara Hills Auction — City Lights', cat: 'Real Estate Reels', src: '/videos/Banjara Hills Auction_CityLights.mp4', desc: 'Luxury Banjara Hills property auction reel with premium night-time city aesthetics.', duration: 'Reel', featured: true },
-  { id: 9, title: 'Believe Every Home Deserves', cat: 'Real Estate Reels', src: '/videos/believe every home deserves.mp4', desc: 'Brand philosophy reel for Property Edge — warm storytelling and aspirational messaging.', duration: 'Short', featured: false },
+  // B Roll - Supporting/property content
+  { id: 8, title: 'Banjara Hills Auction - City Lights', cat: 'Real Estate Reels', src: '/videos/Banjara Hills Auction_CityLights.mp4', desc: 'Luxury Banjara Hills property auction reel with premium night-time city aesthetics.', duration: 'Reel', featured: true },
+  { id: 9, title: 'Believe Every Home Deserves', cat: 'Real Estate Reels', src: '/videos/believe every home deserves.mp4', desc: 'Brand philosophy reel for Property Edge - warm storytelling and aspirational messaging.', duration: 'Short', featured: false },
   { id: 10, title: 'Budvel Layout', cat: 'Property Tours', src: '/videos/Budvel  layout. -_1.mp4', desc: 'Comprehensive layout showcase for the Budvel residential development with aerial-style edits.', duration: 'Full', featured: true },
-  { id: 11, title: 'Budvel Part 1', cat: 'Property Tours', src: '/videos/Budvel part 1.mp4', desc: 'First installment of the Budvel property series — plot previews and location highlights.', duration: 'Part 1', featured: false },
-  { id: 12, title: 'Hyderabad Series — Day 10', cat: 'Real Estate Reels', src: '/videos/Day 10 Hyd Series.mp4', desc: 'Part of a daily Hyderabad real estate content series — market updates with polished motion graphics.', duration: 'Series', featured: false },
-  { id: 13, title: 'Hyderabad Series — Day 12', cat: 'Real Estate Reels', src: '/videos/Day 12 Hyd series_.mp4', desc: 'Day 12 of the Hyd Series — consistent branding, smooth transitions, and clear delivery.', duration: 'Series', featured: false },
-  { id: 14, title: 'Fablehause', cat: 'Property Tours', src: '/videos/fablehause. .mp4', desc: 'Boutique property showcase for Fablehause — luxury feel with attention to architectural details.', duration: 'Reel', featured: true },
-  { id: 15, title: 'Govt Free Lands', cat: 'Investment Content', src: '/videos/Govt Free Lands_1.mp4', desc: 'Informational content on government land schemes — clear visual explainers and call-to-action.', duration: 'Full', featured: false },
-  { id: 16, title: 'Hare Krishna Heritage Tower', cat: 'Real Estate Reels', src: '/videos/Hare Krishna Heritage Tower.mp4', desc: 'Premium heritage tower property video — dramatic reveals, elegant pacing, luxury positioning.', duration: 'Full', featured: true },
-  { id: 17, title: 'High Rise Investment', cat: 'Investment Content', src: '/videos/HIGH RISE INV.mp4', desc: 'Persuasive investment pitch reel for high-rise properties — data-driven visuals with strong CTA.', duration: 'Full', featured: false },
+  { id: 11, title: 'Budvel Part 1', cat: 'Property Tours', src: '/videos/Budvel part 1.mp4', desc: 'First installment of the Budvel property series - plot previews and location highlights.', duration: 'Part 1', featured: false },
+  { id: 12, title: 'Hyderabad Series - Day 10', cat: 'Real Estate Reels', src: '/videos/Day 10 Hyd Series.mp4', desc: 'Part of a daily Hyderabad real estate content series - market updates with polished motion graphics.', duration: 'Series', featured: false },
+  { id: 13, title: 'Hyderabad Series - Day 12', cat: 'Real Estate Reels', src: '/videos/Day 12 Hyd series_.mp4', desc: 'Day 12 of the Hyd Series - consistent branding, smooth transitions, and clear delivery.', duration: 'Series', featured: false },
+  { id: 14, title: 'Fablehause', cat: 'Property Tours', src: '/videos/fablehause. .mp4', desc: 'Boutique property showcase for Fablehause - luxury feel with attention to architectural details.', duration: 'Reel', featured: true },
+  { id: 15, title: 'Govt Free Lands', cat: 'Investment Content', src: '/videos/Govt Free Lands_1.mp4', desc: 'Informational content on government land schemes - clear visual explainers and call-to-action.', duration: 'Full', featured: false },
+  { id: 16, title: 'Hare Krishna Heritage Tower', cat: 'Real Estate Reels', src: '/videos/Hare Krishna Heritage Tower.mp4', desc: 'Premium heritage tower property video - dramatic reveals, elegant pacing, luxury positioning.', duration: 'Full', featured: true },
+  { id: 17, title: 'High Rise Investment', cat: 'Investment Content', src: '/videos/HIGH RISE INV.mp4', desc: 'Persuasive investment pitch reel for high-rise properties - data-driven visuals with strong CTA.', duration: 'Full', featured: false },
   { id: 18, title: 'Hyderabad Investment Villa', cat: 'Investment Content', src: '/videos/Hyd Investment_Villa_2.mp4', desc: 'Villa investment showcase combining aerial views, interior walkthroughs, and price breakdowns.', duration: 'Full', featured: false },
-  { id: 19, title: 'Invest or Wait?', cat: 'Investment Content', src: '/videos/inverst or wait. .mp4', desc: 'Thought-leadership short answering the key question every buyer asks — punchy edits and bold text.', duration: 'Short', featured: false },
-  { id: 20, title: 'Jewellery Brand Reel', cat: 'Client Reels', src: '/videos/Jewellery.MOV', desc: 'Elegant product reel for a jewellery brand — macro shots, shimmer effects, and luxury visual language.', duration: 'Reel', featured: true },
-  { id: 21, title: 'Oorjitha Villa', cat: 'Property Tours', src: '/videos/Oorjitha villa .mp4', desc: 'Flagship villa showcase — cinematic walkthroughs, lifestyle b-roll, and premium colour grade.', duration: 'Full', featured: true },
+  { id: 19, title: 'Invest or Wait?', cat: 'Investment Content', src: '/videos/inverst or wait. .mp4', desc: 'Thought-leadership short answering the key question every buyer asks - punchy edits and bold text.', duration: 'Short', featured: false },
+  { id: 20, title: 'Jewellery Brand Reel', cat: 'Client Reels', src: '/videos/Jewellery.MOV', desc: 'Elegant product reel for a jewellery brand - macro shots, shimmer effects, and luxury visual language.', duration: 'Reel', featured: true },
+  { id: 21, title: 'Oorjitha Villa', cat: 'Property Tours', src: '/videos/Oorjitha villa .mp4', desc: 'Flagship villa showcase - cinematic walkthroughs, lifestyle b-roll, and premium colour grade.', duration: 'Full', featured: true },
   { id: 22, title: 'Public, Semi-Private & Private Zones', cat: 'Property Tours', src: '/videos/Public, Semi-Private, and Private Zones.mp4', desc: 'Educational property design explainer covering zone planning in modern residential developments.', duration: 'Full', featured: false },
-  { id: 23, title: 'SAS Teaser', cat: 'Real Estate Reels', src: '/videos/SAS Teaser .mp4', desc: 'High-energy teaser for the SAS project — rapid cuts, motion type, and cinematic reveal moments.', duration: 'Teaser', featured: true },
-  { id: 24, title: 'Sequence 02', cat: 'Real Estate Reels', src: '/videos/Sequence 02.mp4', desc: 'Creative sequence edit showcasing editing technique — smooth scene transitions and visual flow.', duration: 'Edit', featured: false },
-  { id: 25, title: 'Sequence 08', cat: 'Real Estate Reels', src: '/videos/Sequence 08_2.mp4', desc: 'Second edit in the sequence series — polished colour work and impactful pacing.', duration: 'Edit', featured: false },
-  { id: 26, title: 'MH & MV Project', cat: 'Property Tours', src: '/videos/MH & MV__.mp4', desc: 'Dual-property showcase combining MH and MV developments — cohesive narrative and brand consistency.', duration: 'Full', featured: true },
+  { id: 23, title: 'SAS Teaser', cat: 'Real Estate Reels', src: '/videos/SAS Teaser .mp4', desc: 'High-energy teaser for the SAS project - rapid cuts, motion type, and cinematic reveal moments.', duration: 'Teaser', featured: true },
+  { id: 24, title: 'Sequence 02', cat: 'Real Estate Reels', src: '/videos/Sequence 02.mp4', desc: 'Creative sequence edit showcasing editing technique - smooth scene transitions and visual flow.', duration: 'Edit', featured: false },
+  { id: 25, title: 'Sequence 08', cat: 'Real Estate Reels', src: '/videos/Sequence 08_2.mp4', desc: 'Second edit in the sequence series - polished colour work and impactful pacing.', duration: 'Edit', featured: false },
+  { id: 26, title: 'MH & MV Project', cat: 'Property Tours', src: '/videos/MH & MV__.mp4', desc: 'Dual-property showcase combining MH and MV developments - cohesive narrative and brand consistency.', duration: 'Full', featured: true },
 ];
 
 type Video = typeof videos[0];
@@ -150,7 +150,7 @@ export default function VideoShowcase() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem', marginBottom: '3rem' }}>
           <motion.h2 initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}
             style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 800, color: 'var(--text)', lineHeight: 1.15 }}>
-            My <span className="grad-full">Video Work</span><br />26 Productions — Real Impact.
+            My <span className="grad-full">Video Work</span><br />26 Productions - Real Impact.
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }}
             style={{ fontSize: 14, color: 'var(--muted)', maxWidth: 360, lineHeight: 1.7 }}>

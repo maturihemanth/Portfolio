@@ -3,9 +3,10 @@
 @import "tailwindcss";
 
 /* =======================================================================
-   DESIGN TOKENS — Premium Warm Charcoal + Champagne Gold
+   DESIGN TOKENS — Premium Warm Charcoal + Champagne Gold (DARK)
    ======================================================================= */
-:root {
+:root,
+[data-theme="dark"] {
   --bg:        #080808;
   --bg2:       #0e0e0e;
   --bg3:       #141414;
@@ -28,14 +29,75 @@
   --text:      #f5f3ee;
   --muted:     rgba(245,243,238,0.50);
   --muted2:    rgba(245,243,238,0.28);
+
+  /* loader bg */
+  --loader-bg: #080808;
 }
+
+/* =======================================================================
+   LIGHT THEME — Warm Ivory + Deep Navy (no yellow)
+   ======================================================================= */
+[data-theme="light"] {
+  --bg:        #fafaf8;
+  --bg2:       #f4f3ef;
+  --bg3:       #eceae5;
+  --surface:   #e4e2dc;
+  --border:    rgba(0,0,0,0.08);
+  --border2:   rgba(14,30,74,0.18);
+
+  /* Light accent: deep navy instead of gold */
+  --gold:      #0e1e4a;
+  --gold-l:    #1e3a8a;
+  --gold-d:    #071029;
+  --gold-dd:   #040918;
+
+  --violet:    #0e1e4a;
+  --violet-d:  #071029;
+  --violet-dd: #040918;
+  --cyan:      #1e3a8a;
+  --cyan-d:    #0e1e4a;
+
+  --text:      #0a0a0a;
+  --muted:     rgba(10,10,10,0.55);
+  --muted2:    rgba(10,10,10,0.32);
+
+  --loader-bg: #fafaf8;
+}
+
+/* Light theme gradient text override */
+[data-theme="light"] .grad-full,
+[data-theme="light"] .grad-violet,
+[data-theme="light"] .grad-gold {
+  background: linear-gradient(135deg, #071029 0%, #0e1e4a 50%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="light"] .grad-cyan {
+  background: linear-gradient(135deg, #0e1e4a 0%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="light"] .blob-violet,
+[data-theme="light"] .blob-gold,
+[data-theme="light"] .blob-cyan,
+[data-theme="light"] .blob-gold2 {
+  background: radial-gradient(ellipse, rgba(14,30,74,0.06) 0%, transparent 70%);
+}
+[data-theme="light"] .grain::before { opacity: 0.012; }
 
 /* =======================================================================
    RESET & BASE
    ======================================================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* Smooth theme switch */
+  transition: background-color 0.35s ease;
+}
 
 body {
   background: var(--bg);
@@ -44,6 +106,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.25s ease;
 }
 
 /* =======================================================================

@@ -73,7 +73,7 @@ export default function Skills() {
               <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
                 <div className="section-label" style={{ marginBottom: '0.5rem' }}>Certification</div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>Graphic Design &amp; Video Editing</div>
-                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 2 }}>TAC – The Art Code Institute · 6 Months</div>
+                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 2 }}>TAC - The Art Code Institute · 6 Months</div>
               </div>
             </motion.div>
           </div>

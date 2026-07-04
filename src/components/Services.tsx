@@ -6,8 +6,8 @@ const services = [
   { icon: '◈', title: 'Graphic Design', desc: 'Posters, banners, social media creatives, and promotional materials built on strong visual hierarchy.', tags: ['Photoshop', 'Illustrator'], color: '#a07828' },
   { icon: '▶', title: 'Video Editing', desc: 'Cinematic reels, YouTube Shorts, brand films and promotional videos with smooth cuts and dynamic pacing.', tags: ['Premiere Pro', 'DaVinci Resolve'], color: '#d4a853' },
   { icon: '✦', title: 'Motion Graphics', desc: 'Animated titles, transitions, logo reveals, and visual effects that breathe life into any content.', tags: ['After Effects'], color: '#e8c47a' },
-  { icon: '⬡', title: 'Social Media Design', desc: 'Platform-optimised creatives for Instagram, YouTube, and Facebook — built to stop the scroll.', tags: ['Photoshop', 'Canva'], color: '#d4a853' },
-  { icon: '◉', title: 'Branding & Identity', desc: 'Visual identity systems — logos, colour palettes, typography, and brand guidelines for cohesive storytelling.', tags: ['Illustrator', 'Photoshop'], color: '#a07828' },
+  { icon: '⬡', title: 'Social Media Design', desc: 'Platform-optimised creatives for Instagram, YouTube, and Facebook - built to stop the scroll.', tags: ['Photoshop', 'Canva'], color: '#d4a853' },
+  { icon: '◉', title: 'Branding & Identity', desc: 'Visual identity systems - logos, colour palettes, typography, and brand guidelines for cohesive storytelling.', tags: ['Illustrator', 'Photoshop'], color: '#a07828' },
   { icon: '⬕', title: 'Real Estate Content', desc: 'Property videos, promotional listings, virtual tour visuals, and marketing materials for real estate brands.', tags: ['Premiere Pro', 'Photoshop'], color: '#e8c47a' },
 ];
 
@@ -31,7 +31,7 @@ export default function Services() {
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }}
             style={{ fontSize: 15, color: 'var(--muted)', maxWidth: 360, lineHeight: 1.7 }}>
-            From concept to final delivery — creative services designed to elevate your brand.
+            From concept to final delivery - creative services designed to elevate your brand.
           </motion.p>
         </div>
 

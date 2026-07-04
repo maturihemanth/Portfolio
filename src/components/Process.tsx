@@ -3,9 +3,9 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const steps = [
-  { num: '01', title: 'Discover',       desc: 'Deep-dive brief — understanding your brand, audience, goals, and creative vision.' },
+  { num: '01', title: 'Discover',       desc: 'Deep-dive brief - understanding your brand, audience, goals, and creative vision.' },
   { num: '02', title: 'Research',       desc: 'Analysing competitors, current trends, and references to find the creative edge.' },
-  { num: '03', title: 'Concept',        desc: 'Generating bold ideas — moodboards, rough cuts, and visual directions.' },
+  { num: '03', title: 'Concept',        desc: 'Generating bold ideas - moodboards, rough cuts, and visual directions.' },
   { num: '04', title: 'Design & Edit',  desc: 'Crafting high-fidelity visuals and editing sequences with meticulous detail.' },
   { num: '05', title: 'Feedback',       desc: 'Collaborative review rounds to refine and perfect every element.' },
   { num: '06', title: 'Final Delivery', desc: 'Production-ready files delivered in all required formats, on time.' },

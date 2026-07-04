@@ -1,6 +1,7 @@
 ﻿'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const links = [
   { label: 'About',    href: '#about'    },
@@ -71,9 +72,10 @@ export default function Navigation() {
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = active === l.href ? '#d4a853' : 'rgba(241,245,249,0.6)'; (e.currentTarget as HTMLElement).style.background = 'none'; }}
             >{l.label}</button>
           ))}
+          <ThemeToggle />
           <button onClick={() => go('#contact')}
             style={{
-              marginLeft: '0.5rem', padding: '0.5rem 1.2rem', borderRadius: 8,
+              marginLeft: '0.25rem', padding: '0.5rem 1.2rem', borderRadius: 8,
               background: 'linear-gradient(135deg, #a07828, #d4a853)',
               border: 'none', cursor: 'pointer',
               fontSize: 13, fontWeight: 600, color: '#fff', letterSpacing: '0.02em',

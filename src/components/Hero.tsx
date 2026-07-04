@@ -90,7 +90,7 @@ export default function Hero() {
               <Image src="/IMG_0246.JPG" alt="Maturi Hemanth" fill priority style={{ objectFit:'cover', objectPosition:'center top' }} sizes="400px" />
             </div>
 
-            {/* Info strip — sits BELOW the photo, zero overlap */}
+            {/* Info strip - sits BELOW the photo, zero overlap */}
             <motion.div initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.8 }}
               style={{ display:'flex', gap:'0.75rem', width:'100%', maxWidth:400, flexWrap:'wrap' }}>
               <div style={{ flex:1, minWidth:150, background:'var(--bg3)', border:`1px solid ${G}15`, borderRadius:12, padding:'0.9rem 1rem' }}>
