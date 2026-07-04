@@ -28,7 +28,7 @@ export default function Contact() {
 
   const inp: React.CSSProperties = {
     width: '100%', padding: '0.9rem 1.1rem', borderRadius: 10, fontSize: 14,
-    background: 'rgba(28,28,28,0.8)', border: '1px solid var(--border)',
+    background: 'var(--bg3)', border: '1px solid var(--border)',
     color: 'var(--text)', outline: 'none', fontFamily: "'DM Sans', sans-serif",
     transition: 'border-color 0.2s',
   };
@@ -85,9 +85,9 @@ export default function Contact() {
               ].map(s => (
                 <a key={s.label} href={s.href} aria-label={s.label}
                   style={{ width: 44, height: 44, borderRadius: 12,
-                    background: 'rgba(28,28,28,0.8)', border: '1px solid var(--border)',
+                    background: 'var(--surface)', border: '1px solid var(--border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16,
-                    textDecoration: 'none', transition: 'border-color 0.2s, box-shadow 0.2s' }}
+                    textDecoration: 'none', transition: 'border-color 0.2s, box-shadow 0.2s, background 0.35s' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.4)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 16px rgba(212,168,83,0.2)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
                   {s.icon}
@@ -99,8 +99,8 @@ export default function Contact() {
           {/* Form */}
           <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.3 }}
             style={{ padding: '2.5rem', borderRadius: 24,
-              background: 'rgba(28,28,28,0.6)', border: '1px solid var(--border)',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.3)' }}>
+              background: 'var(--surface)', border: '1px solid var(--border)',
+              boxShadow: '0 40px 80px rgba(0,0,0,0.15)', transition: 'background 0.35s' }}>
             {status === 'sent' ? (
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
                 style={{ textAlign: 'center', padding: '3rem 1rem' }}>

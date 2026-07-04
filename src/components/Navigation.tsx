@@ -37,9 +37,9 @@ export default function Navigation() {
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
           padding: scrolled ? '0.8rem 2rem' : '1.4rem 2rem',
-          background: scrolled ? 'rgba(8,8,8,0.85)' : 'transparent',
+          background: scrolled ? 'var(--nav-scrolled)' : 'transparent',
           backdropFilter: scrolled ? 'blur(20px) saturate(160%)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(212,168,83,0.12)' : '1px solid transparent',
+          borderBottom: scrolled ? '1px solid var(--border2)' : '1px solid transparent',
           transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}
@@ -54,7 +54,7 @@ export default function Navigation() {
             fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 15, color: '#fff',
             boxShadow: '0 0 20px rgba(212,168,83,0.4)',
           }}>H</div>
-          <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.02em' }}>Hemanth</span>
+          <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 15, color: 'var(--text)', letterSpacing: '0.02em' }}>Hemanth</span>
         </button>
 
         {/* Desktop nav */}
@@ -65,11 +65,11 @@ export default function Navigation() {
                 background: 'none', border: 'none', cursor: 'pointer',
                 padding: '0.45rem 0.85rem', borderRadius: 8,
                 fontSize: 13, fontWeight: 500, letterSpacing: '0.02em',
-                color: active === l.href ? '#d4a853' : 'rgba(241,245,249,0.6)',
+                color: active === l.href ? 'var(--gold)' : 'var(--nav-link)',
                 transition: 'color 0.2s, background 0.2s',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#d4a853'; (e.currentTarget as HTMLElement).style.background = 'rgba(212,168,83,0.08)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = active === l.href ? '#d4a853' : 'rgba(241,245,249,0.6)'; (e.currentTarget as HTMLElement).style.background = 'none'; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--gold)'; (e.currentTarget as HTMLElement).style.background = 'rgba(128,96,24,0.1)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = active === l.href ? 'var(--gold)' : 'var(--nav-link)'; (e.currentTarget as HTMLElement).style.background = 'none'; }}
             >{l.label}</button>
           ))}
           <ThemeToggle />
@@ -106,15 +106,15 @@ export default function Navigation() {
         {menuOpen && (
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
             style={{ position: 'fixed', top: 62, left: 0, right: 0, zIndex: 999,
-              background: 'rgba(8,8,8,0.97)', backdropFilter: 'blur(20px)',
-              borderBottom: '1px solid rgba(212,168,83,0.12)',
+              background: 'var(--nav-mobile)', backdropFilter: 'blur(20px)',
+              borderBottom: '1px solid var(--border)',
               padding: '1.25rem 2rem', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
             {links.map((l, i) => (
               <motion.button key={l.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.04 }}
                 onClick={() => go(l.href)}
                 style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.9rem 0',
-                  fontSize: 17, fontWeight: 500, color: 'rgba(241,245,249,0.8)', textAlign: 'left',
-                  borderBottom: '1px solid rgba(212,168,83,0.08)' }}>
+                  fontSize: 17, fontWeight: 500, color: 'var(--nav-link)', textAlign: 'left',
+                  borderBottom: '1px solid var(--border)' }}>
                 {l.label}
               </motion.button>
             ))}

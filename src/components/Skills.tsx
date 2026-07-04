@@ -55,7 +55,7 @@ export default function Skills() {
           <div>{skills.map((s, i) => <Bar key={s.name} s={s} i={i} inView={inView} />)}</div>
           <div>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }}
-              style={{ padding: '2rem', borderRadius: 20, background: 'rgba(28,28,28,0.6)', border: '1px solid var(--border)', marginBottom: '1.5rem' }}>
+              style={{ padding: '2rem', borderRadius: 20, background: 'var(--surface)', border: '1px solid var(--border)', marginBottom: '1.5rem', transition: 'background 0.35s' }}>
               <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)', marginBottom: '1.25rem', letterSpacing: '0.02em' }}>Core Competencies</h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {softSkills.map((s, i) => (

@@ -19,7 +19,6 @@
   --gold-d:    #a07828;
   --gold-dd:   #7a5c1e;
 
-  /* component aliases */
   --violet:    #d4a853;
   --violet-d:  #a07828;
   --violet-dd: #7a5c1e;
@@ -30,8 +29,44 @@
   --muted:     rgba(245,243,238,0.50);
   --muted2:    rgba(245,243,238,0.28);
 
-  /* loader bg */
+  /* Navigation */
+  --nav-scrolled: rgba(8,8,8,0.88);
+  --nav-mobile:   rgba(8,8,8,0.97);
+  --nav-link:     rgba(245,243,238,0.60);
+  --nav-hover:    rgba(245,243,238,0.95);
+
   --loader-bg: #080808;
+}
+
+[data-theme="light"] {
+  --bg:        #fafaf8;
+  --bg2:       #f4f3ef;
+  --bg3:       #eceae5;
+  --surface:   #e4e2dc;
+  --border:    rgba(0,0,0,0.08);
+  --border2:   rgba(14,30,74,0.18);
+
+  --gold:      #0e1e4a;
+  --gold-l:    #1e3a8a;
+  --gold-d:    #071029;
+  --gold-dd:   #040918;
+  --violet:    #0e1e4a;
+  --violet-d:  #071029;
+  --violet-dd: #040918;
+  --cyan:      #1e3a8a;
+  --cyan-d:    #0e1e4a;
+
+  --text:      #0a0a0a;
+  --muted:     rgba(10,10,10,0.60);
+  --muted2:    rgba(10,10,10,0.38);
+
+  /* Navigation */
+  --nav-scrolled: rgba(250,250,248,0.92);
+  --nav-mobile:   rgba(250,250,248,0.98);
+  --nav-link:     rgba(10,10,10,0.55);
+  --nav-hover:    rgba(10,10,10,0.90);
+
+  --loader-bg: #fafaf8;
 }
 
 /* =======================================================================

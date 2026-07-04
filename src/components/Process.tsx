@@ -35,7 +35,8 @@ export default function Process() {
               transition={{ duration: 0.6, delay: 0.08 * i, ease: [0.22,1,0.36,1] }}
               whileHover={{ borderColor: `${colors[i]}40`, transition: { duration: 0.2 } }}
               style={{ padding: '2rem', borderRadius: 20,
-                background: 'rgba(28,28,28,0.5)', border: '1px solid var(--border)', position: 'relative' }}>
+                background: 'var(--surface)', border: '1px solid var(--border)', position: 'relative',
+                transition: 'background 0.35s, border-color 0.2s' }}>
               {/* Number */}
               <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 52, fontWeight: 800, lineHeight: 1, marginBottom: '1rem',
                 background: `linear-gradient(135deg, ${colors[i]}25, ${colors[i]}08)`,

@@ -42,8 +42,8 @@ export default function Services() {
               transition={{ duration: 0.6, delay: 0.08 * i, ease: [0.22,1,0.36,1] }}
               whileHover={{ y: -6 }}
               style={{ padding: '2rem', borderRadius: 20, cursor: 'default',
-                background: 'rgba(28,28,28,0.5)', border: '1px solid var(--border)',
-                transition: 'border-color 0.3s, box-shadow 0.3s' }}
+                background: 'var(--surface)', border: '1px solid var(--border)',
+                transition: 'border-color 0.3s, box-shadow 0.3s, background 0.35s' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${s.color}33`; (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 60px rgba(0,0,0,0.4), 0 0 40px ${s.color}10`; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}>
               <div style={{ width: 48, height: 48, borderRadius: 12, marginBottom: '1.5rem',

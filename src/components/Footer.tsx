@@ -37,7 +37,7 @@ export default function Footer() {
               ].map(s => (
                 <a key={s.label} href={s.href} aria-label={s.label}
                   style={{ width: 38, height: 38, borderRadius: 10, fontSize: 14,
-                    background: 'rgba(28,28,28,0.8)', border: '1px solid var(--border)',
+                    background: 'var(--surface)', border: '1px solid var(--border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none',
                     transition: 'border-color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.4)'}
