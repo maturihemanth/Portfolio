@@ -40,7 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Large video assets — store separately (Google Drive / S3 / Cloudinary)
-/public/videos/
 # Keep poster images (small) but ignore HEIC (not web-safe)
 /public/IMG_5499.HEIC
