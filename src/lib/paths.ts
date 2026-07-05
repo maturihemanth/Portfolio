@@ -1,9 +1,8 @@
 /**
- * Get the base path for the app (used for GitHub Pages)
- * In development: empty string
- * In production: '/Portfolio'
+ * For static export on GitHub Pages, we always need the basePath prefix
+ * This ensures images/videos load from /Portfolio/ subpath
  */
-export const BASE_PATH = process.env.NODE_ENV === 'production' ? '/Portfolio' : '';
+export const BASE_PATH = '/Portfolio';
 
 /**
  * Helper to construct public asset paths with basePath prefix
