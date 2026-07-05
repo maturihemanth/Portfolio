@@ -60,8 +60,10 @@ function VideoCard({ video, onClick }: { video: Video; onClick: () => void }) {
       }}>
       {/* Video preview */}
       <div style={{ position: 'relative', aspectRatio: '16/9', background: 'var(--bg3)' }}>
-        <video ref={vRef} src={video.src} muted playsInline preload="metadata"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <video ref={vRef} muted playsInline preload="metadata"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
+          <source src={video.src} type="video/mp4" />
+        </video>
         {/* Overlay */}
         <div style={{ position: 'absolute', inset: 0,
           background: 'linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.3) 50%, transparent 100%)',
@@ -109,8 +111,10 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
           background: 'var(--bg2)', border: '1px solid var(--border2)', borderRadius: 24, overflow: 'hidden',
           boxShadow: '0 40px 100px rgba(0,0,0,0.9), 0 0 80px rgba(212,168,83,0.15)' }}>
         <div style={{ position: 'relative', aspectRatio: '16/9', background: '#000' }}>
-          <video src={video.src} controls autoPlay muted
-            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+          <video controls autoPlay muted
+            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}>
+            <source src={video.src} type="video/mp4" />
+          </video>
           <button onClick={onClose}
             style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,0,0,0.6)', border: 'none', cursor: 'pointer',
               width: 36, height: 36, borderRadius: '50%', color: '#fff', fontSize: 18,
