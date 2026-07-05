@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/paths';
 
 const G  = '#d4a853';
 const GL = '#e8c47a';
@@ -87,7 +88,7 @@ export default function Hero() {
             {/* Photo */}
             <div style={{ position:'relative', width:'100%', maxWidth:400, aspectRatio:'3/4', borderRadius:24, overflow:'hidden', border:`1px solid ${G}1a`, boxShadow:`0 40px 80px rgba(0,0,0,0.6), 0 0 40px ${G}0c` }}>
               <div style={{ position:'absolute', bottom:0, left:0, right:0, height:'45%', zIndex:1, background:'linear-gradient(to top, rgba(8,8,8,0.65) 0%, transparent 100%)' }} />
-              <Image src="/IMG_0246.JPG" alt="Maturi Hemanth" fill priority style={{ objectFit:'cover', objectPosition:'center top' }} sizes="400px" />
+              <Image src={getAssetPath('/IMG_0246.JPG')} alt="Maturi Hemanth" fill priority style={{ objectFit:'cover', objectPosition:'center top' }} sizes="400px" />
             </div>
 
             {/* Info strip - sits BELOW the photo, zero overlap */}

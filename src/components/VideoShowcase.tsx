@@ -1,6 +1,7 @@
 ﻿'use client';
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { getAssetPath } from '@/lib/paths';
 
 const videoCategories = ['All', 'Real Estate Reels', 'Property Tours', 'Investment Content', 'Client Reels'];
 
@@ -36,7 +37,10 @@ const videos = [
   { id: 26, title: 'MH & MV Project', cat: 'Property Tours', src: '/videos/MH & MV__.mp4', desc: 'Dual-property showcase combining MH and MV developments - cohesive narrative and brand consistency.', duration: 'Full', featured: true },
 ];
 
-type Video = typeof videos[0];
+// Apply basePath to all video sources
+const processedVideos = videos.map(v => ({ ...v, src: getAssetPath(v.src) }));
+
+type Video = typeof processedVideos[0];
 
 function VideoCard({ video, onClick }: { video: Video; onClick: () => void }) {
   const vRef = useRef<HTMLVideoElement>(null);
@@ -134,7 +138,7 @@ export default function VideoShowcase() {
   const [selected, setSelected] = useState<Video | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const filtered = filter === 'All' ? videos : videos.filter(v => v.cat === filter);
+  const filtered = filter === 'All' ? processedVideos : processedVideos.filter(v => v.cat === filter);
   const displayed = showAll ? filtered : filtered.slice(0, 9);
 
   return (

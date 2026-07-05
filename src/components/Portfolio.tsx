@@ -2,18 +2,19 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { getAssetPath } from '@/lib/paths';
 
 const categories = ['All', 'Posters', 'Branding', 'Social Media', 'Real Estate', 'Photography'];
 
 const projects = [
-  { id: 1, title: '3 Types of Buyers', category: 'Posters', desc: 'Educational infographic-style poster for real estate buyers, combining strong typography with clear visual hierarchy.', tools: ['Photoshop'], image: '/posters/3 types of buyers.  .jpg', span: 'wide' },
-  { id: 2, title: 'Brand Identity Artwork', category: 'Branding', desc: 'Bold graphic design artwork blending colour theory, typography, and digital illustration techniques.', tools: ['Photoshop', 'Illustrator'], image: '/posters/Artboard 1.png', span: 'tall' },
-  { id: 3, title: 'Creative Portrait Edit', category: 'Photography', desc: 'High-impact creative self-portrait with neon aesthetics and advanced compositing - showcasing Photoshop mastery.', tools: ['Photoshop'], image: '/IMG_0233.JPG', span: 'normal' },
-  { id: 4, title: 'MAD Design Campaign', category: 'Social Media', desc: 'Bold social media creative combining experimental typography with vivid colour and impactful messaging.', tools: ['Photoshop'], image: '/posters/mad.jpg', span: 'normal' },
-  { id: 5, title: 'NR Property Listing', category: 'Real Estate', desc: 'Clean, professional property listing creative designed for maximum readability and visual appeal.', tools: ['Photoshop', 'Premiere Pro'], image: '/posters/NR 1_1.jpg', span: 'wide' },
-  { id: 6, title: 'Villa Showcase', category: 'Real Estate', desc: 'Premium villa marketing creative for Property Edge Pvt. Ltd. - blending luxury aesthetics with property highlights.', tools: ['Photoshop', 'Premiere Pro'], image: '/posters/villa 1.jpg', span: 'normal' },
-  { id: 7, title: 'Cinematic Portrait', category: 'Photography', desc: 'Dramatic dark-tone portrait with gold highlights and fine detail retouching for premium brand use.', tools: ['Photoshop', 'Lightroom'], image: '/IMG_0797.JPG', span: 'tall' },
-  { id: 8, title: 'Professional Headshot', category: 'Photography', desc: 'Clean professional studio-style portrait ideal for branding and corporate identity.', tools: ['Lightroom', 'Photoshop'], image: '/IMG_0246.JPG', span: 'normal' },
+  { id: 1, title: '3 Types of Buyers', category: 'Posters', desc: 'Educational infographic-style poster for real estate buyers, combining strong typography with clear visual hierarchy.', tools: ['Photoshop'], image: getAssetPath('/posters/3 types of buyers.  .jpg'), span: 'wide' },
+  { id: 2, title: 'Brand Identity Artwork', category: 'Branding', desc: 'Bold graphic design artwork blending colour theory, typography, and digital illustration techniques.', tools: ['Photoshop', 'Illustrator'], image: getAssetPath('/posters/Artboard 1.png'), span: 'tall' },
+  { id: 3, title: 'Creative Portrait Edit', category: 'Photography', desc: 'High-impact creative self-portrait with neon aesthetics and advanced compositing - showcasing Photoshop mastery.', tools: ['Photoshop'], image: getAssetPath('/IMG_0233.JPG'), span: 'normal' },
+  { id: 4, title: 'MAD Design Campaign', category: 'Social Media', desc: 'Bold social media creative combining experimental typography with vivid colour and impactful messaging.', tools: ['Photoshop'], image: getAssetPath('/posters/mad.jpg'), span: 'normal' },
+  { id: 5, title: 'NR Property Listing', category: 'Real Estate', desc: 'Clean, professional property listing creative designed for maximum readability and visual appeal.', tools: ['Photoshop', 'Premiere Pro'], image: getAssetPath('/posters/NR 1_1.jpg'), span: 'wide' },
+  { id: 6, title: 'Villa Showcase', category: 'Real Estate', desc: 'Premium villa marketing creative for Property Edge Pvt. Ltd. - blending luxury aesthetics with property highlights.', tools: ['Photoshop', 'Premiere Pro'], image: getAssetPath('/posters/villa 1.jpg'), span: 'normal' },
+  { id: 7, title: 'Cinematic Portrait', category: 'Photography', desc: 'Dramatic dark-tone portrait with gold highlights and fine detail retouching for premium brand use.', tools: ['Photoshop', 'Lightroom'], image: getAssetPath('/IMG_0797.JPG'), span: 'tall' },
+  { id: 8, title: 'Professional Headshot', category: 'Photography', desc: 'Clean professional studio-style portrait ideal for branding and corporate identity.', tools: ['Lightroom', 'Photoshop'], image: getAssetPath('/IMG_0246.JPG'), span: 'normal' },
 ];
 
 type Project = typeof projects[0];
