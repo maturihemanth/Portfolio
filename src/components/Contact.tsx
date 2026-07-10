@@ -80,10 +80,10 @@ export default function Contact() {
               style={{ display: 'flex', gap: 10, marginTop: '2rem' }}>
               {[
                 { label: 'Instagram', icon: '📸', href: '#' },
-                { label: 'LinkedIn',  icon: '💼', href: '#' },
+                { label: 'LinkedIn',  icon: '💼', href: 'https://www.linkedin.com/in/maturi-hemanth-8a490717b/' },
                 { label: 'YouTube',   icon: '▶',  href: '#' },
               ].map(s => (
-                <a key={s.label} href={s.href} aria-label={s.label}
+                <a key={s.label} href={s.href} aria-label={s.label} target={s.href.startsWith('http') ? '_blank' : undefined} rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   style={{ width: 44, height: 44, borderRadius: 12,
                     background: 'var(--surface)', border: '1px solid var(--border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16,

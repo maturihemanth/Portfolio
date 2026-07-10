@@ -32,10 +32,11 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', gap: 10, marginTop: '1.5rem' }}>
               {[
-                { label: 'Email', icon: '📧', href: 'mailto:maturihemath7@gmail.com' },
-                { label: 'Phone', icon: '📱', href: 'tel:+919494171923' },
+                { label: 'Email',    icon: '📧', href: 'mailto:maturihemath7@gmail.com' },
+                { label: 'Phone',    icon: '📱', href: 'tel:+919494171923' },
+                { label: 'LinkedIn', icon: '💼', href: 'https://www.linkedin.com/in/maturi-hemanth-8a490717b/' },
               ].map(s => (
-                <a key={s.label} href={s.href} aria-label={s.label}
+                <a key={s.label} href={s.href} aria-label={s.label} target={s.href.startsWith('http') ? '_blank' : undefined} rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   style={{ width: 38, height: 38, borderRadius: 10, fontSize: 14,
                     background: 'var(--surface)', border: '1px solid var(--border)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none',
