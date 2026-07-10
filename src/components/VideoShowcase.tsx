@@ -1,72 +1,68 @@
 ﻿'use client';
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { getAssetPath } from '@/lib/paths';
 
 const videoCategories = ['All', 'Real Estate Reels', 'Property Tours', 'Investment Content', 'Client Reels'];
 
+// driveId = Google Drive file ID from share link
 const videos = [
-  // A Roll - Hero/feature content
-  { id: 1, title: '90 Seconds to Fall in Love with a Flat', cat: 'Property Tours', src: '/videos/90 seconds to fall in love with a flat.mp4', desc: 'Cinematic property showcase reel for a residential flat - fast-paced cuts, lifestyle b-roll, and compelling narrative.', duration: '~90s', featured: true },
-  { id: 2, title: 'Buying a Home vs Investing in a Home', cat: 'Investment Content', src: '/videos/Buying a home and Investing a home.mp4', desc: 'Educational explainer video comparing buyer motivations - clean text animations and engaging voiceover pacing.', duration: 'Full', featured: true },
-  { id: 3, title: 'Durga Anna - Personal Reel', cat: 'Client Reels', src: '/videos/Durga Anna Reel.mp4', desc: 'High-energy personal brand reel with dynamic cuts, colour grading, and motion typography.', duration: 'Reel', featured: true },
-  { id: 4, title: 'KK Reel', cat: 'Client Reels', src: '/videos/KK Reel.mp4', desc: 'Client testimonial and lifestyle reel crafted for social media engagement.', duration: 'Reel', featured: false },
-  { id: 5, title: 'KK v2', cat: 'Client Reels', src: '/videos/kk(2)1.0.mp4', desc: 'Revised version of the KK reel with updated pacing and enhanced colour work.', duration: 'Reel', featured: false },
-  { id: 6, title: 'Lokesh Anna - Personal Reel', cat: 'Client Reels', src: '/videos/Lokesh Anna Reel.mp4', desc: 'Dynamic personal reel with trend-aligned transitions and audio sync.', duration: 'Reel', featured: false },
-  { id: 7, title: 'Two Types of Buyers', cat: 'Investment Content', src: '/videos/Two types of Buyers.mp4', desc: 'Engaging short-form content breaking down buyer psychology for real estate marketing.', duration: 'Short', featured: true },
-
-  // B Roll - Supporting/property content
-  { id: 8, title: 'Banjara Hills Auction - City Lights', cat: 'Real Estate Reels', src: '/videos/Banjara Hills Auction_CityLights.mp4', desc: 'Luxury Banjara Hills property auction reel with premium night-time city aesthetics.', duration: 'Reel', featured: true },
-  { id: 9, title: 'Believe Every Home Deserves', cat: 'Real Estate Reels', src: '/videos/believe every home deserves.mp4', desc: 'Brand philosophy reel for Property Edge - warm storytelling and aspirational messaging.', duration: 'Short', featured: false },
-  { id: 10, title: 'Budvel Layout', cat: 'Property Tours', src: '/videos/Budvel  layout. -_1.mp4', desc: 'Comprehensive layout showcase for the Budvel residential development with aerial-style edits.', duration: 'Full', featured: true },
-  { id: 11, title: 'Budvel Part 1', cat: 'Property Tours', src: '/videos/Budvel part 1.mp4', desc: 'First installment of the Budvel property series - plot previews and location highlights.', duration: 'Part 1', featured: false },
-  { id: 12, title: 'Hyderabad Series - Day 10', cat: 'Real Estate Reels', src: '/videos/Day 10 Hyd Series.mp4', desc: 'Part of a daily Hyderabad real estate content series - market updates with polished motion graphics.', duration: 'Series', featured: false },
-  { id: 13, title: 'Hyderabad Series - Day 12', cat: 'Real Estate Reels', src: '/videos/Day 12 Hyd series_.mp4', desc: 'Day 12 of the Hyd Series - consistent branding, smooth transitions, and clear delivery.', duration: 'Series', featured: false },
-  { id: 14, title: 'Fablehause', cat: 'Property Tours', src: '/videos/fablehause. .mp4', desc: 'Boutique property showcase for Fablehause - luxury feel with attention to architectural details.', duration: 'Reel', featured: true },
-  { id: 15, title: 'Govt Free Lands', cat: 'Investment Content', src: '/videos/Govt Free Lands_1.mp4', desc: 'Informational content on government land schemes - clear visual explainers and call-to-action.', duration: 'Full', featured: false },
-  { id: 16, title: 'Hare Krishna Heritage Tower', cat: 'Real Estate Reels', src: '/videos/Hare Krishna Heritage Tower.mp4', desc: 'Premium heritage tower property video - dramatic reveals, elegant pacing, luxury positioning.', duration: 'Full', featured: true },
-  { id: 17, title: 'High Rise Investment', cat: 'Investment Content', src: '/videos/HIGH RISE INV.mp4', desc: 'Persuasive investment pitch reel for high-rise properties - data-driven visuals with strong CTA.', duration: 'Full', featured: false },
-  { id: 18, title: 'Hyderabad Investment Villa', cat: 'Investment Content', src: '/videos/Hyd Investment_Villa_2.mp4', desc: 'Villa investment showcase combining aerial views, interior walkthroughs, and price breakdowns.', duration: 'Full', featured: false },
-  { id: 19, title: 'Invest or Wait?', cat: 'Investment Content', src: '/videos/inverst or wait. .mp4', desc: 'Thought-leadership short answering the key question every buyer asks - punchy edits and bold text.', duration: 'Short', featured: false },
-  { id: 20, title: 'Jewellery Brand Reel', cat: 'Client Reels', src: '/videos/Jewellery.MOV', desc: 'Elegant product reel for a jewellery brand - macro shots, shimmer effects, and luxury visual language.', duration: 'Reel', featured: true },
-  { id: 21, title: 'Oorjitha Villa', cat: 'Property Tours', src: '/videos/Oorjitha villa .mp4', desc: 'Flagship villa showcase - cinematic walkthroughs, lifestyle b-roll, and premium colour grade.', duration: 'Full', featured: true },
-  { id: 22, title: 'Public, Semi-Private & Private Zones', cat: 'Property Tours', src: '/videos/Public, Semi-Private, and Private Zones.mp4', desc: 'Educational property design explainer covering zone planning in modern residential developments.', duration: 'Full', featured: false },
-  { id: 23, title: 'SAS Teaser', cat: 'Real Estate Reels', src: '/videos/SAS Teaser .mp4', desc: 'High-energy teaser for the SAS project - rapid cuts, motion type, and cinematic reveal moments.', duration: 'Teaser', featured: true },
-  { id: 24, title: 'Sequence 02', cat: 'Real Estate Reels', src: '/videos/Sequence 02.mp4', desc: 'Creative sequence edit showcasing editing technique - smooth scene transitions and visual flow.', duration: 'Edit', featured: false },
-  { id: 25, title: 'Sequence 08', cat: 'Real Estate Reels', src: '/videos/Sequence 08_2.mp4', desc: 'Second edit in the sequence series - polished colour work and impactful pacing.', duration: 'Edit', featured: false },
-  { id: 26, title: 'MH & MV Project', cat: 'Property Tours', src: '/videos/MH & MV__.mp4', desc: 'Dual-property showcase combining MH and MV developments - cohesive narrative and brand consistency.', duration: 'Full', featured: true },
+  // A Roll
+  { id: 1,  title: '90 Seconds to Fall in Love with a Flat',    cat: 'Property Tours',    driveId: '1zOt2Zh3sw0Wm3rTCHrngjJTLlzWq1rRR', desc: 'Cinematic property showcase reel for a residential flat - fast-paced cuts, lifestyle b-roll, and compelling narrative.',                                          duration: '~90s',   featured: true  },
+  { id: 2,  title: 'Buying a Home vs Investing in a Home',       cat: 'Investment Content', driveId: '1CQk_o7YmXPSMJ05WBOtWWUFn6cUbAflI', desc: 'Educational explainer video comparing buyer motivations - clean text animations and engaging voiceover pacing.',                                            duration: 'Full',   featured: true  },
+  { id: 3,  title: 'Durga Anna - Personal Reel',                 cat: 'Client Reels',      driveId: '1479DYmhxDT7l_NjGLQIrQbJ5XKmMyCIe', desc: 'High-energy personal brand reel with dynamic cuts, colour grading, and motion typography.',                                                               duration: 'Reel',   featured: true  },
+  { id: 4,  title: 'KK Reel',                                    cat: 'Client Reels',      driveId: '1XGnlG-p6Kb2fZr_lfBlNogxUuPupIX5m', desc: 'Client testimonial and lifestyle reel crafted for social media engagement.',                                                                             duration: 'Reel',   featured: false },
+  { id: 5,  title: 'KK v2',                                      cat: 'Client Reels',      driveId: '1Nwcvvn0tR_0OEf4vSLg-aXxxGDvjXC-D', desc: 'Revised version of the KK reel with updated pacing and enhanced colour work.',                                                                           duration: 'Reel',   featured: false },
+  { id: 6,  title: 'Lokesh Anna - Personal Reel',                cat: 'Client Reels',      driveId: '1a1r7FtbS39BvjGTE9vKdXQPBqlDzQklK', desc: 'Dynamic personal reel with trend-aligned transitions and audio sync.',                                                                                   duration: 'Reel',   featured: false },
+  { id: 7,  title: 'Two Types of Buyers',                        cat: 'Investment Content', driveId: '1T6s19F5d6XL7URQvJjRmDqU4O3BloyAX', desc: 'Engaging short-form content breaking down buyer psychology for real estate marketing.',                                                                   duration: 'Short',  featured: true  },
+  // B Roll
+  { id: 8,  title: 'Banjara Hills Auction - City Lights',        cat: 'Real Estate Reels', driveId: '1EJmnXEs30N2vZ9TCYIw_nLNwz-tJch8F', desc: 'Luxury Banjara Hills property auction reel with premium night-time city aesthetics.',                                                                    duration: 'Reel',   featured: true  },
+  { id: 9,  title: 'Believe Every Home Deserves',                cat: 'Real Estate Reels', driveId: '1tbZHR1Xucd4R_D8MpUYBmIOD7sWL2e81', desc: 'Brand philosophy reel for Property Edge - warm storytelling and aspirational messaging.',                                                                  duration: 'Short',  featured: false },
+  { id: 10, title: 'Budvel Layout',                              cat: 'Property Tours',    driveId: '1le8B4SABFRVDUTBSvWz_vD1Ghq6JZST2', desc: 'Comprehensive layout showcase for the Budvel residential development with aerial-style edits.',                                                             duration: 'Full',   featured: true  },
+  { id: 11, title: 'Budvel Part 1',                              cat: 'Property Tours',    driveId: '16JZKUOGD9G6j8jzjbiDXyiQ4tnHKasjM', desc: 'First installment of the Budvel property series - plot previews and location highlights.',                                                                 duration: 'Part 1', featured: false },
+  { id: 12, title: 'Hyderabad Series - Day 10',                  cat: 'Real Estate Reels', driveId: '1DkBiuLPoLlqdj3E4sazWKvAbfhWdBoPW', desc: 'Part of a daily Hyderabad real estate content series - market updates with polished motion graphics.',                                                    duration: 'Series', featured: false },
+  { id: 13, title: 'Hyderabad Series - Day 12',                  cat: 'Real Estate Reels', driveId: '1hCcmaUIJPTXvLifAktfis3rrxcVVXXm7', desc: 'Day 12 of the Hyd Series - consistent branding, smooth transitions, and clear delivery.',                                                                  duration: 'Series', featured: false },
+  { id: 14, title: 'Fablehause',                                 cat: 'Property Tours',    driveId: '1wIY7jIglcw2c50lyqLjiVyaYc6BaFLGW', desc: 'Boutique property showcase for Fablehause - luxury feel with attention to architectural details.',                                                          duration: 'Reel',   featured: true  },
+  { id: 15, title: 'Govt Free Lands',                            cat: 'Investment Content', driveId: '1fRj2_HYWQTt76Z9rANMIGFc-Nk6EWuHa', desc: 'Informational content on government land schemes - clear visual explainers and call-to-action.',                                                          duration: 'Full',   featured: false },
+  { id: 16, title: 'Hare Krishna Heritage Tower',                cat: 'Real Estate Reels', driveId: '1a0x1Ly4zSjhR8uu8STcOtjGqxoWw3DA4', desc: 'Premium heritage tower property video - dramatic reveals, elegant pacing, luxury positioning.',                                                              duration: 'Full',   featured: true  },
+  { id: 17, title: 'High Rise Investment',                       cat: 'Investment Content', driveId: '1hwjRkbV27F_kL1VblMgVmxkzJ1djLVe4', desc: 'Persuasive investment pitch reel for high-rise properties - data-driven visuals with strong CTA.',                                                          duration: 'Full',   featured: false },
+  { id: 18, title: 'Hyderabad Investment Villa',                 cat: 'Investment Content', driveId: '1On5D1Tw8YbM4GQ1ot24LoUtey0ZE3IIB', desc: 'Villa investment showcase combining aerial views, interior walkthroughs, and price breakdowns.',                                                           duration: 'Full',   featured: false },
+  { id: 19, title: 'Invest or Wait?',                            cat: 'Investment Content', driveId: '1bAz6YS4gGOGFHDhlA5qDeFN6SkpLA18B', desc: 'Thought-leadership short answering the key question every buyer asks - punchy edits and bold text.',                                                       duration: 'Short',  featured: false },
+  { id: 20, title: 'Jewellery Brand Reel',                       cat: 'Client Reels',      driveId: '1a5hzI4oyWODlTqayORHTI0S9r1GS7ic5', desc: 'Elegant product reel for a jewellery brand - macro shots, shimmer effects, and luxury visual language.',                                                  duration: 'Reel',   featured: true  },
+  { id: 21, title: 'Oorjitha Villa',                             cat: 'Property Tours',    driveId: '1b1KVdFMvmYHoV7m4gQEzmscLiMR4Ze_7', desc: 'Flagship villa showcase - cinematic walkthroughs, lifestyle b-roll, and premium colour grade.',                                                              duration: 'Full',   featured: true  },
+  { id: 22, title: 'Public, Semi-Private & Private Zones',       cat: 'Property Tours',    driveId: '1EPYae6YedmpsTe7-bJYxVd8aOBAnAWic', desc: 'Educational property design explainer covering zone planning in modern residential developments.',                                                         duration: 'Full',   featured: false },
+  { id: 23, title: 'SAS Teaser',                                 cat: 'Real Estate Reels', driveId: '1carulvhKj0sW30umcwpnwdQWzEALmsZg', desc: 'High-energy teaser for the SAS project - rapid cuts, motion type, and cinematic reveal moments.',                                                          duration: 'Teaser', featured: true  },
+  { id: 24, title: 'Sequence 02',                                cat: 'Real Estate Reels', driveId: '17ArIAGWZpwbJalyXT35omAdIiji9mGIu', desc: 'Creative sequence edit showcasing editing technique - smooth scene transitions and visual flow.',                                                          duration: 'Edit',   featured: false },
+  { id: 25, title: 'Sequence 08',                                cat: 'Real Estate Reels', driveId: '1Ok95kP5L_3tIk-w9gga9fYJoqw0D8uRN', desc: 'Second edit in the sequence series - polished colour work and impactful pacing.',                                                                          duration: 'Edit',   featured: false },
+  { id: 26, title: 'MH & MV Project',                            cat: 'Property Tours',    driveId: '1q0t2CpxOsSJho2SzB7Jf7k6AIvwG1YB6', desc: 'Dual-property showcase combining MH and MV developments - cohesive narrative and brand consistency.',                                                     duration: 'Full',   featured: true  },
 ];
 
-// Apply basePath to all video sources
-const processedVideos = videos.map(v => ({ ...v, src: getAssetPath(v.src) }));
+const thumbUrl  = (id: string) => `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
+const embedUrl  = (id: string) => `https://drive.google.com/file/d/${id}/preview`;
 
-type Video = typeof processedVideos[0];
+type Video = typeof videos[0];
 
 function VideoCard({ video, onClick }: { video: Video; onClick: () => void }) {
-  const vRef = useRef<HTMLVideoElement>(null);
   return (
     <motion.div
       whileHover="hover" onClick={onClick}
       style={{ borderRadius: 16, overflow: 'hidden', cursor: 'pointer', position: 'relative',
         background: 'var(--bg3)', border: '1px solid var(--border)',
         transition: 'border-color 0.3s' }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.3)';
-        vRef.current?.play().catch(() => {});
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)';
-        if (vRef.current) { vRef.current.pause(); vRef.current.currentTime = 0; }
-      }}>
-      {/* Video preview */}
-      <div style={{ position: 'relative', aspectRatio: '16/9', background: 'var(--bg3)' }}>
-        <video ref={vRef} muted playsInline preload="metadata"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
-          <source src={video.src} type="video/mp4" />
-        </video>
+      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,168,83,0.3)'; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; }}>
+      {/* Thumbnail */}
+      <div style={{ position: 'relative', aspectRatio: '16/9', background: 'var(--bg3)', overflow: 'hidden' }}>
+        <img
+          src={thumbUrl(video.driveId)}
+          alt={video.title}
+          loading="lazy"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1.05)'; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
+        />
         {/* Overlay */}
         <div style={{ position: 'absolute', inset: 0,
-          background: 'linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.3) 50%, transparent 100%)',
+          background: 'linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.2) 50%, transparent 100%)',
           display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <motion.div variants={{ hover: { scale: 1.1, opacity: 1 } }} initial={{ opacity: 0.8 }}
             style={{ width: 52, height: 52, borderRadius: '50%',
@@ -111,14 +107,16 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
           background: 'var(--bg2)', border: '1px solid var(--border2)', borderRadius: 24, overflow: 'hidden',
           boxShadow: '0 40px 100px rgba(0,0,0,0.9), 0 0 80px rgba(212,168,83,0.15)' }}>
         <div style={{ position: 'relative', aspectRatio: '16/9', background: '#000' }}>
-          <video controls autoPlay muted
-            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}>
-            <source src={video.src} type="video/mp4" />
-          </video>
+          <iframe
+            src={embedUrl(video.driveId)}
+            allow="autoplay"
+            allowFullScreen
+            style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+          />
           <button onClick={onClose}
             style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,0,0,0.6)', border: 'none', cursor: 'pointer',
               width: 36, height: 36, borderRadius: '50%', color: '#fff', fontSize: 18,
-              display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
+              display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1 }}>×</button>
         </div>
         <div style={{ padding: '1.5rem 2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
@@ -142,7 +140,7 @@ export default function VideoShowcase() {
   const [selected, setSelected] = useState<Video | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const filtered = filter === 'All' ? processedVideos : processedVideos.filter(v => v.cat === filter);
+  const filtered = filter === 'All' ? videos : videos.filter(v => v.cat === filter);
   const displayed = showAll ? filtered : filtered.slice(0, 9);
 
   return (
